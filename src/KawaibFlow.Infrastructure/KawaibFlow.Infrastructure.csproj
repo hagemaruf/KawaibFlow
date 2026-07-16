@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\KawaibFlow.Application\KawaibFlow.Application.csproj" />
+    <ProjectReference Include="..\KawaibFlow.Domain\KawaibFlow.Domain.csproj" />
+    <ProjectReference Include="..\KawaibFlow.Contracts\KawaibFlow.Contracts.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>
