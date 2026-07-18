@@ -1,3 +1,5 @@
+using KawaibFlow.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -9,6 +11,10 @@ public static class InfrastructureServiceCollectionExtensions
         this IServiceCollection services,
         IConfiguration configuration)
     {
+        services.AddDbContext<KawaibFlowDbContext>(options =>
+            options.UseSqlite(
+                configuration.GetConnectionString("DefaultConnection")));
+
         return services;
     }
 }
