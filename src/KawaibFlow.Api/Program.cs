@@ -1,6 +1,8 @@
 using KawaibFlow.Application;
 using KawaibFlow.Application.Configuration;
 using KawaibFlow.Infrastructure;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,9 @@ builder.Services
     .AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
+var logger = app.Services.GetRequiredService<ILogger<Program>>();
+
+logger.LogInformation("KawaibFlow API started successfully.");
 
 if (app.Environment.IsDevelopment())
 {
