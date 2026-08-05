@@ -19,12 +19,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapControllers();
-
 app.MapGet("/health", () =>
     Results.Ok(new
     {
         Status = "Healthy"
     }));
+
+app.MapControllers();
 
 app.Run();
