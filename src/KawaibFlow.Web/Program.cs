@@ -1,5 +1,7 @@
 using KawaibFlow.Application.Configuration;
 using KawaibFlow.Web.Components;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,9 @@ builder.Services.Configure<ApiOptions>(
     builder.Configuration.GetSection(ApiOptions.SectionName));
 
 var app = builder.Build();
+var logger = app.Services.GetRequiredService<ILogger<Program>>();
+
+logger.LogInformation("KawaibFlow Web started successfully.");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
